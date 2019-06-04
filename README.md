@@ -1,10 +1,10 @@
-#Secure Code Validator
+# Secure Code Validator
 An Express API that runs client-derived code and tests that code in a secure manner via Docker containers.
 
-##Authentication
+## Authentication
 API is secured by a hard-coded passphrase stored in a .env file under the key passphrase.
 
-#Endpoint
+# Endpoint
 POST /validate
 
 Expects an object literal payload of the following schema:
@@ -21,7 +21,7 @@ Returns a Boolean value:
 - true if all tests pass
 - false if all tests fail
 
-#Request Lifecycle
+# Request Lifecycle
 - compute container and network ID
 - clone pre-configured repo with jest as a dependency
 - add skeletonFunction name test
