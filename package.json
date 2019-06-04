@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/labs13-clone/secure-validator/issues"
   },
-  "homepage": "https://github.com/labs13-clone/secure-validator#readme"
+  "homepage": "https://github.com/labs13-clone/secure-validator#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "executive": "^1.6.3",
+    "express": "^4.17.1",
+    "helmet": "^3.18.0",
+    "morgan": "^1.9.1",
+    "redux": "^4.0.1"
+  }
 }
