@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,10 +19,14 @@
   "homepage": "https://github.com/labs13-clone/secure-validator#readme",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
     "executive": "^1.6.3",
     "express": "^4.17.1",
     "helmet": "^3.18.0",
     "morgan": "^1.9.1",
     "redux": "^4.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
   }
 }

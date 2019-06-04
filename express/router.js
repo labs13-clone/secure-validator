@@ -8,9 +8,7 @@ const express = require('express');
 const lifecycleRouter = express.Router();
 
 //Import Libraries
-const filesystem = require('../libraries/filesystem');
-const containers = require('../libraries/containers');
-const analysisEngine = require('../libraries/analysisEngine');
+const containers = require('../docker/containers');
 
 //Redux Store
 const middleware = require('./middleware');
@@ -65,23 +63,18 @@ lifecycleRouter.get('/start', middleware.authenticator, (req, res) => {
     const appInfo = reduxStore.getState().runningApps.find(f => f.userId == userId);
 
     if (appInfo && appInfo.log) {
-        reduxStore.dispatch({
-            type: reduxActions.ADD_TO_APP_LOG,
-            userId,
-            payload: `Prepping filesystem for analysis...`
-        });
 
         //Start analysis flow
-        analysisEngine.startAnalysis(appInfo)
-            .then(result => {
-                res.status(200).json(result)
-            })
-            .catch(error => {
-                console.log(error);
-                res.status(500).json({
-                    message: "Internal Server Error"
-                });
-            });
+        // analysisEngine.startAnalysis(appInfo)
+        //     .then(result => {
+        //         res.status(200).json(result)
+        //     })
+        //     .catch(error => {
+        //         console.log(error);
+        //         res.status(500).json({
+        //             message: "Internal Server Error"
+        //         });
+        //     });
     } else {
         res.status(500).json({
             message: "Internal Server Error - App Doesn't Exist"
@@ -97,23 +90,18 @@ lifecycleRouter.get('/setup', middleware.authenticator, (req, res) => {
     const appInfo = reduxStore.getState().runningApps.find(f => f.userId == userId);
 
     if (appInfo && appInfo.log) {
-        reduxStore.dispatch({
-            type: reduxActions.ADD_TO_APP_LOG,
-            userId,
-            payload: `Setting Up Apps Filesystem...`
-        });
 
         //Start analysis flow
-        filesystem.setupApp(appInfo)
-            .then(result => {
-                res.status(200).json(result);
-            })
-            .catch(error => {
-                console.log(error);
-                res.status(500).json({
-                    message: "Internal Server Error"
-                });
-            });
+        // filesystem.setupApp(appInfo)
+        //     .then(result => {
+        //         res.status(200).json(result);
+        //     })
+        //     .catch(error => {
+        //         console.log(error);
+        //         res.status(500).json({
+        //             message: "Internal Server Error"
+        //         });
+        //     });
     } else {
         res.status(500).json({
             message: "Internal Server Error - App Doesn't Exist"

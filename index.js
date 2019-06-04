@@ -1,6 +1,6 @@
 require('dotenv').config();
 const server = require('./express/server');
-const containers = require('./libraries/containers');
+const containers = require('./docker/containers');
 
 //Delete any running Docker containers and networks on startup
 containers.startupCleanup();
