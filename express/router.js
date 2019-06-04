@@ -8,7 +8,8 @@ const express = require('express');
 const lifecycleRouter = express.Router();
 
 //Import Libraries
-const containers = require('../docker/containers');
+const containers = require('../libraries/containers');
+const filesystem = require('../libraries/filesystem');
 
 //Redux Store
 const middleware = require('./middleware');
